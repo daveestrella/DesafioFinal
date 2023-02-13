@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="App">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Model">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="View">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Presenter">
+      <UniqueIdentifier>{c7300d2f-8bee-4f16-b400-b7b3ff855a07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model\Vendedor">
+      <UniqueIdentifier>{d31a1f88-e044-483d-9b3f-fb4b8834fe27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model\Tienda">
+      <UniqueIdentifier>{52c44272-3d6f-4d3b-b429-f0053da10d48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model\Cotizacion">
+      <UniqueIdentifier>{dc31f624-5636-45f8-bec0-e35bdac339b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model\Prenda">
+      <UniqueIdentifier>{8eae5ad4-f329-4c36-86b0-2c5cd6995ef4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model\Prenda\Tipos">
+      <UniqueIdentifier>{18363673-68ec-4277-b185-8ce1f7bbd68a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model\Prenda\Tipos\Camisa">
+      <UniqueIdentifier>{b6ca6011-a41f-42d8-b245-9ac54ba7c4c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model\Prenda\Tipos\Pantalon">
+      <UniqueIdentifier>{6045c867-7cfe-4bfe-ad72-38e2edce7853}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>App</Filter>
+    </ClCompile>
+    <ClCompile Include="Vendedor.cpp">
+      <Filter>Model\Vendedor</Filter>
+    </ClCompile>
+    <ClCompile Include="Tienda.cpp">
+      <Filter>Model\Tienda</Filter>
+    </ClCompile>
+    <ClCompile Include="Cotizacion.cpp">
+      <Filter>Model\Cotizacion</Filter>
+    </ClCompile>
+    <ClCompile Include="Prenda.cpp">
+      <Filter>Model\Prenda</Filter>
+    </ClCompile>
+    <ClCompile Include="Camisa.cpp">
+      <Filter>Model\Prenda\Tipos\Camisa</Filter>
+    </ClCompile>
+    <ClCompile Include="Pantalon.cpp">
+      <Filter>Model\Prenda\Tipos\Pantalon</Filter>
+    </ClCompile>
+    <ClCompile Include="Presenter.cpp">
+      <Filter>Presenter</Filter>
+    </ClCompile>
+    <ClCompile Include="View.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Vendedor.h">
+      <Filter>Model\Vendedor</Filter>
+    </ClInclude>
+    <ClInclude Include="Tienda.h">
+      <Filter>Model\Tienda</Filter>
+    </ClInclude>
+    <ClInclude Include="Cotizacion.h">
+      <Filter>Model\Cotizacion</Filter>
+    </ClInclude>
+    <ClInclude Include="Prenda.h">
+      <Filter>Model\Prenda</Filter>
+    </ClInclude>
+    <ClInclude Include="Camisa.h">
+      <Filter>Model\Prenda\Tipos\Camisa</Filter>
+    </ClInclude>
+    <ClInclude Include="Pantalon.h">
+      <Filter>Model\Prenda\Tipos\Pantalon</Filter>
+    </ClInclude>
+    <ClInclude Include="Presenter.h">
+      <Filter>Presenter</Filter>
+    </ClInclude>
+    <ClInclude Include="View.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="Enums.h">
+      <Filter>Model\Prenda</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
