@@ -11,7 +11,8 @@ private:
 	TipoManga manga;
 public:
 	Camisa(TipoCalidad calidad, float precio, int stock, TipoCuello cuello, TipoManga manga);
-	TipoPrenda getTipoPrenda();
+	TipoPrenda getTipoPrenda() override;
+	std::string getNombrePrenda() override;
 	TipoCuello getTipoCuello();
 	TipoManga getTipoManga();
 };

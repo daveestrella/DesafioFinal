@@ -12,8 +12,10 @@ private:
 public:
 	View();
 	~View();
+	void encabezado(std::string titulo);
+	void pie();
 	void menuPrincipal();
-	void opcion(const char opcion, bool salir);
+	void escogerOpcion(char opcion, bool& salir);
 	void historialCotizaciones();
 	void realizarCotizacion();
 	void mostrarTexto(std::string texto);

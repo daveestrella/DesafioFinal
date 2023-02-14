@@ -1,6 +1,7 @@
 #ifndef PANTALON_H
 #define PANTALON_H
 
+#include <iostream>
 #include "Prenda.h"
 #include "Enums.h"
 
@@ -11,6 +12,7 @@ private:
 public:
 	Pantalon(TipoCalidad calidad, float precio, int stock, TipoPantalon tipoPantalon);
 	TipoPrenda getTipoPrenda();
+	std::string getNombrePrenda();
 	TipoPantalon getTipoPantalon();
 };
 

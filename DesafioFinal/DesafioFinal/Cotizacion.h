@@ -7,14 +7,21 @@
 class Cotizacion
 {
 private:
-	int id;
+	std::string id;
 	std::string fecha;
-	Vendedor vendedor;
-	std::unique_ptr<Prenda> prenda;
+	Vendedor* vendedor;
+	Prenda* prenda;
 	int unidades;
 	float total;
 public:
-	float Cotizar();
+	Cotizacion(std::string id, std::string fecha, Vendedor* vendedor, Prenda* prenda, int unidades);
+	std::string getCodigo();
+	std::string getFecha();
+	Vendedor* getVendedor();
+	Prenda* getPrenda();
+	int getUnidades();
+	float getTotal();
+	void Cotizar();
 };
 
 #endif // !COTIZACION_H

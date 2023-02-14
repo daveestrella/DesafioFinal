@@ -1,6 +1,7 @@
 #ifndef PRENDA_H
 #define PRENDA_H
 
+#include <iostream>
 #include "Enums.h"
 
 class Prenda
@@ -15,6 +16,10 @@ public:
 	float getPrecio();
 	int getStock();
 	virtual TipoPrenda getTipoPrenda() = 0;
+	virtual std::string getNombrePrenda() = 0;
+	virtual TipoCuello getTipoCuello();
+	virtual TipoManga getTipoManga();
+	virtual TipoPantalon getTipoPantalon();
 };
 
 #endif // !PRENDA_H
