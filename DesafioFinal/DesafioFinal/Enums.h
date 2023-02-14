@@ -9,4 +9,6 @@ enum class TipoManga { Corta = 1, Larga = 2 };
 
 enum class TipoPantalon { Comun = 1, Chupin = 2 };
 
+enum class TipoCalidad { Standard = 1, Premium = 2 };
+
 #endif

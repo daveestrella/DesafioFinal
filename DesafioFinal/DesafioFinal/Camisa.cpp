@@ -1,5 +1,11 @@
-#include <iostream>
 #include "Camisa.h"
+
+
+Camisa::Camisa(TipoCalidad calidad, float precio, int stock, TipoCuello cuello, TipoManga manga) : Prenda(calidad,precio,stock)
+{
+	this->cuello = cuello;
+	this->manga = manga;
+}
 
 TipoPrenda Camisa::getTipoPrenda()
 {

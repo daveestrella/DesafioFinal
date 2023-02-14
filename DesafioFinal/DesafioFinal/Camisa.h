@@ -1,15 +1,16 @@
 #ifndef CAMISA_H
 #define CAMISA_H
-#include <iostream>
+
 #include "Prenda.h"
 #include "Enums.h"
 
-class Camisa : Prenda
+class Camisa : public Prenda
 {
 private:
 	TipoCuello cuello;
 	TipoManga manga;
 public:
+	Camisa(TipoCalidad calidad, float precio, int stock, TipoCuello cuello, TipoManga manga);
 	TipoPrenda getTipoPrenda();
 	TipoCuello getTipoCuello();
 	TipoManga getTipoManga();

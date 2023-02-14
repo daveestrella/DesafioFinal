@@ -1,6 +1,6 @@
 #ifndef COTIZACION_H
 #define COTIZACION_H
-#include <iostream>
+
 #include "Vendedor.h"
 #include "Prenda.h"
 
@@ -10,7 +10,7 @@ private:
 	int id;
 	std::string fecha;
 	Vendedor vendedor;
-	Prenda prenda;
+	std::unique_ptr<Prenda> prenda;
 	int unidades;
 	float total;
 public:

@@ -1,14 +1,14 @@
-#include <iostream>
 #include "Prenda.h"
+#include "Enums.h"
 
-Prenda::Prenda(std::string calidad, float precio, int stock)
+Prenda::Prenda(TipoCalidad calidad, float precio, int stock)
 {
 	this->calidad = calidad;
 	this->precio = precio;
 	this->stock = stock;
 }
 
-std::string Prenda::getCalidad()
+TipoCalidad Prenda::getCalidad()
 {
 	return this->calidad;
 }
