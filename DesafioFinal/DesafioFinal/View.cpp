@@ -31,6 +31,7 @@ void View::mostrarTexto(const std::string texto)
 void View::clear()
 {
 	std::cout << "\x1B[2J\x1B[H";
+	std::system("cls");
 };
 
 void View::menuPrincipal()
@@ -101,7 +102,7 @@ void View::historialCotizaciones()
 		regreso = _getch();
 	} while (regreso != '3');
 
-	menuPrincipal();
+	return;
 }
 
 void View::encabezado(std::string titulo)
@@ -153,7 +154,7 @@ void View::realizarCotizacion()
 				manga = _getch();
 
 				if (manga == '3')
-					menuPrincipal();
+					return;
 
 				if (manga != '1' && manga != '2')
 				{
@@ -181,7 +182,7 @@ void View::realizarCotizacion()
 				cuello = _getch();
 
 				if (cuello == '3')
-					menuPrincipal();
+					return;
 
 				if (cuello != '1' && cuello != '2')
 				{
@@ -212,7 +213,7 @@ void View::realizarCotizacion()
 				tipoPantalon = _getch();;
 
 				if (tipoPantalon == '3')
-					menuPrincipal();
+					return;
 
 				if (tipoPantalon != '1' && tipoPantalon != '2')
 				{
@@ -230,7 +231,7 @@ void View::realizarCotizacion()
 			break;
 
 		case '3': //SALIR
-			menuPrincipal();
+			return;
 			break;
 
 		default:
@@ -260,7 +261,7 @@ void View::realizarCotizacion()
 		calidad = _getch();
 
 		if (calidad == '3')
-			menuPrincipal();
+			return;
 
 		if (calidad != '1' && calidad != '2')
 		{
@@ -293,7 +294,7 @@ void View::realizarCotizacion()
 		if (std::cin.good())
 		{
 			if (precio == 3)
-				menuPrincipal();
+				return;
 
 			opcionValida = true;
 		}
@@ -331,7 +332,7 @@ void View::realizarCotizacion()
 		if (std::cin.good())
 		{
 			if (unidades == 3)
-				menuPrincipal();
+				return;
 
 			if (unidades > stock)
 			{
@@ -379,5 +380,5 @@ void View::realizarCotizacion()
 		opcion = _getch();
 	} while (opcion != '3');
 
-	menuPrincipal();
+	return;
 }
