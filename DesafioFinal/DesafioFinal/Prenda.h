@@ -17,9 +17,6 @@ public:
 	int getStock();
 	virtual TipoPrenda getTipoPrenda() = 0;
 	virtual std::string getNombrePrenda() = 0;
-	virtual TipoCuello getTipoCuello();
-	virtual TipoManga getTipoManga();
-	virtual TipoPantalon getTipoPantalon();
 };
 
 #endif // !PRENDA_H

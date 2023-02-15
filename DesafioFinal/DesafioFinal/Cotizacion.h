@@ -22,6 +22,7 @@ public:
 	int getUnidades();
 	float getTotal();
 	void Cotizar();
+	std::string imprimir();
 };
 
 #endif // !COTIZACION_H

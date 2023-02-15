@@ -1,4 +1,5 @@
 #include <iostream>
+#include < conio.h >
 #include <Windows.h>
 #include <stdlib.h>
 #include <string>
@@ -52,7 +53,7 @@ void View::menuPrincipal()
 		mostrarTexto("3) Salir");
 		mostrarTexto("");
 
-		std::cin >> opcion;
+		opcion = _getch();
 		escogerOpcion(opcion, salir);
 
 	} while (!salir);
@@ -75,7 +76,6 @@ void View::escogerOpcion(char opcion, bool& salir)
 		mostrarTexto("Gracias por visitarnos. Vuelva pronto.");
 		mostrarTexto("---------------------------------------------");
 		std::cin.get();
-		std::cin.get();
 		salir = true;
 		break;
 	}
@@ -91,21 +91,14 @@ void View::historialCotizaciones()
 
 	for (auto const& cotizacion : *presenter->getTienda()->getCotizaciones())
 	{
-		mostrarTexto(std::string("Número de Identificación: ").append(cotizacion->getId()));
-		mostrarTexto(std::string("Fecha y Hora de la cotización: ").append(cotizacion->getFecha()));
-		mostrarTexto(std::string("Código del vendedor: ").append(cotizacion->getVendedor()->getCodigo()));
-		mostrarTexto(std::string("Prenda cotizada: ").append(cotizacion->getPrenda()->getNombrePrenda()));
-		mostrarTexto(std::string("Precio unitario: $").append(std::to_string(cotizacion->getPrenda()->getPrecio())));
-		mostrarTexto(std::string("Cantidad de unidades cotizadas: ").append(std::to_string(cotizacion->getUnidades())));
-		mostrarTexto(std::string("Precio Final: $").append(std::to_string(cotizacion->getTotal())));
-		mostrarTexto("\n\n");
+		mostrarTexto(cotizacion->imprimir());
 	}
 
 	pie();
 
 	do
 	{
-		std::cin >> regreso;
+		regreso = _getch();
 	} while (regreso != '3');
 
 	menuPrincipal();
@@ -119,14 +112,14 @@ void View::encabezado(std::string titulo)
 void View::pie()
 {
 	mostrarTexto("-----------------------------------------------------------------------");
-	mostrarTexto("Presiona 3 para volver al menú principal (Se abandona la cotizacion)");
+	mostrarTexto("Presiona 3 para volver al menú principal");
 	mostrarTexto("-----------------------------------------------------------------------");
 }
 
 void View::realizarCotizacion()
 {
 	bool opcionValida = false;
-	char opcion,prenda, manga, cuello, tipoPantalon, calidad;
+	char opcion = '0', prenda = '0', manga = '0', cuello = '0', tipoPantalon = '0', calidad = '0';
 	int unidades;
 	float precio;
 
@@ -141,11 +134,11 @@ void View::realizarCotizacion()
 		mostrarTexto("2) Pantalón");
 		mostrarTexto("-----------------------------------------------------------------------");
 
-		std::cin >> prenda;
+		prenda = _getch();
 
 		switch (prenda)
 		{
-			
+
 		case '1'://CAMISA
 			do
 			{
@@ -157,7 +150,7 @@ void View::realizarCotizacion()
 				mostrarTexto("2) Larga");
 				mostrarTexto("-----------------------------------------------------------------------");
 
-				std::cin >> manga;
+				manga = _getch();
 
 				if (manga == '3')
 					menuPrincipal();
@@ -169,7 +162,6 @@ void View::realizarCotizacion()
 					encabezado("COTIZAR");
 					pie();
 					mostrarTexto("Opción no Válida. Vuelva a intentar");
-					std::cin.get();
 					std::cin.get();
 				}
 				else
@@ -186,7 +178,7 @@ void View::realizarCotizacion()
 				mostrarTexto("2) Mao");
 				mostrarTexto("-----------------------------------------------------------------------");
 
-				std::cin >> cuello;
+				cuello = _getch();
 
 				if (cuello == '3')
 					menuPrincipal();
@@ -199,14 +191,13 @@ void View::realizarCotizacion()
 					pie();
 					mostrarTexto("Opción no Válida. Vuelva a intentar");
 					std::cin.get();
-					std::cin.get();
 				}
 				else
 					opcionValida = true;
-				
+
 			} while (!opcionValida);
 			break;
-			
+
 		case '2'://PANTALON
 			do
 			{
@@ -218,7 +209,7 @@ void View::realizarCotizacion()
 				mostrarTexto("2) Chupín");
 				mostrarTexto("-----------------------------------------------------------------------");
 
-				std::cin >> tipoPantalon;
+				tipoPantalon = _getch();;
 
 				if (tipoPantalon == '3')
 					menuPrincipal();
@@ -230,7 +221,6 @@ void View::realizarCotizacion()
 					encabezado("COTIZAR");
 					pie();
 					mostrarTexto("Opción no Válida. Vuelva a intentar");
-					std::cin.get();
 					std::cin.get();
 				}
 				else
@@ -250,10 +240,9 @@ void View::realizarCotizacion()
 			pie();
 			mostrarTexto("Opción no Válida. Vuelva a intentar");
 			std::cin.get();
-			std::cin.get();
 			break;
 		}
-	}while (!opcionValida);
+	} while (!opcionValida);
 
 	/*---------------------Calidad------------------------------*/
 	opcionValida = false;
@@ -268,7 +257,7 @@ void View::realizarCotizacion()
 		mostrarTexto("2) Premium");
 		mostrarTexto("-----------------------------------------------------------------------");
 
-		std::cin >> calidad;
+		calidad = _getch();
 
 		if (calidad == '3')
 			menuPrincipal();
@@ -281,7 +270,6 @@ void View::realizarCotizacion()
 			pie();
 			mostrarTexto("Opción no Válida. Vuelva a intentar");
 			std::cin.get();
-			std::cin.get();
 		}
 		else
 			opcionValida = true;
@@ -289,7 +277,7 @@ void View::realizarCotizacion()
 
 	} while (!opcionValida);
 
-	/*---------------------Calidad------------------------------*/
+	/*---------------------Precio------------------------------*/
 	opcionValida = false;
 
 	do
@@ -310,21 +298,31 @@ void View::realizarCotizacion()
 			opcionValida = true;
 		}
 		else
+		{
+			std::cin.clear();
+			std::cin.ignore(10000, '\n');
 			opcionValida = false;
-
+			clear();
+			encabezado("COTIZAR");
+			pie();
+			mostrarTexto("Valor no válido. Asegurése que sea un valor numérico");
+			std::cin.get();
+		}
 
 	} while (!opcionValida);
 
-	/*---------------------Calidad------------------------------*/
+	/*---------------------Unidades------------------------------*/
 	opcionValida = false;
+	int stock;
 
 	do
 	{
+		stock = presenter->getStock(prenda, manga, cuello, tipoPantalon, calidad);
 		clear();
 		encabezado("COTIZAR");
 		pie();
 		mostrarTexto("\nINFORMACIÓN:");
-		mostrarTexto(std::string("EXISTE").append(std::to_string(presenter->getStock(prenda,manga,cuello,tipoPantalon,calidad)).append(" CANTIDAD DE UNIDADES EN STOCK DE LA PRENDA SELECCIONADA\n")));
+		mostrarTexto(std::string("EXISTE ").append(std::to_string(stock).append(" CANTIDAD DE UNIDADES EN STOCK DE LA PRENDA SELECCIONADA\n")));
 		mostrarTexto("PASO 5: Ingrese la cantidad de unidades a cotizar:");
 		mostrarTexto("-----------------------------------------------------------------------");
 
@@ -335,27 +333,50 @@ void View::realizarCotizacion()
 			if (unidades == 3)
 				menuPrincipal();
 
-			opcionValida = true;
+			if (unidades > stock)
+			{
+				std::cin.clear();
+				std::cin.ignore(10000, '\n');
+				opcionValida = false;
+				clear();
+				encabezado("COTIZAR");
+				pie();
+				mostrarTexto("Valor no válido. No hay suficiente stock");
+				std::cin.get();
+			}
+
+			else
+				opcionValida = true;
 		}
 		else
+		{
+			std::cin.clear();
+			std::cin.ignore(10000, '\n');
 			opcionValida = false;
+			clear();
+			encabezado("COTIZAR");
+			pie();
+			mostrarTexto("Valor no válido. Asegurése que sea un valor numérico");
+			std::cin.get();
+		}
 
 
 	} while (!opcionValida);
 
-	std::string codigoCotizacion = presenter->realizarCotizacion(prenda,manga,cuello,tipoPantalon,calidad,unidades,precio);
 
 	/*--------------------Resultado-----------------------------*/
+
+	presenter->realizarCotizacion(prenda, manga, cuello, tipoPantalon, calidad, unidades, precio);
 
 	clear();
 	encabezado("COTIZAR");
 	pie();
-	mostrarTexto(presenter->imprimirCotizacion(codigoCotizacion));
+	mostrarTexto(presenter->getTienda()->getCotizaciones()->back()->imprimir());
 	pie();
 
 	do
 	{
-		std::cin >> opcion;
+		opcion = _getch();
 	} while (opcion != '3');
 
 	menuPrincipal();
