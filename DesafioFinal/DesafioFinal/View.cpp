@@ -30,6 +30,7 @@ void View::mostrarTexto(const std::string texto)
 
 void View::clear()
 {
+	std::cin.clear();
 	std::cout << "\x1B[2J\x1B[H";
 	std::system("cls");
 };
@@ -76,6 +77,7 @@ void View::escogerOpcion(char opcion, bool& salir)
 		mostrarTexto("---------------------------------------------");
 		mostrarTexto("Gracias por visitarnos. Vuelva pronto.");
 		mostrarTexto("---------------------------------------------");
+		std::cin.get();
 		std::cin.get();
 		salir = true;
 		break;
